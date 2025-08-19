@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "----")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "24371796"))
@@ -36,7 +36,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #pics
 START_PIC = os.environ.get("START_PIC", "https://ibb.co/qYrvkkng")
-FORCE_PIC = os.environ.get("FORCE_PIC", "https://ibb.co/hRQfrDWS")
+FORCE_PIC = os.environ.get("FORCE_PIC", "https://envs.sh/uML.jpg")
 
 #text
 HELP_TXT = "<blockquote><b>Hi Dude!\n\nTo use this bot you just have to join both channels that's it..\nWatch Tutorial to open Link - <a href=https://t.me/+5eMEwVDf3qUxMDU9>Clickhere</a></b></blockquote>"
@@ -46,7 +46,7 @@ ABOUT_TXT = """<b>🤖 ᴍʏ ɴᴀᴍᴇ: {botname}
 START_MSG = os.environ.get("START_MESSAGE", "<b>ʜɪ ᴛʜᴇʀᴇ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></b>")
 try:
     ADMINS=[1683225887]
-    for x in (os.environ.get("ADMINS", "1683225887 6521688979").split()):
+    for x in (os.environ.get("ADMINS", "1683225887 8101405157").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
