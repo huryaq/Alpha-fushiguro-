@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "----")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "24371796"))
@@ -40,9 +40,10 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://ibb.co/hRQfrDWS")
 
 #text
 HELP_TXT = "<blockquote><b>Hi Dude!\n\nTo use this bot you just have to join both channels that's it..\nWatch Tutorial to open Link - <a href=https://t.me/+5eMEwVDf3qUxMDU9>Clickhere</a></b></blockquote>"
-ABOUT_TXT = "<blockquote><b><i>About Us..\n\n‣ Made for : <a href=https://t.me/Anime_Duo>ClickHere</a>\n‣ Owned by : @ABT_Fushiguro\n‣ Maintained by : @Amex_Fushiguro\n‣ Developed by : @Save_ish\n\n➳≛⃝ Gojo!!</i></b></blockquote>"
+ABOUT_TXT = """<b>🤖 ᴍʏ ɴᴀᴍᴇ: {botname}
+<blockquote><b>» 𝐎ᴡɴᴇʀ: <a href=https://t.me/Amex_Fushiguro>𝐅ᴜsʜɪɢᴜʀᴏ</a>\n» 𝐀ɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : <a href=https://t.me/Anime_Duo>𝐂ᴏᴍɪɴɢ 𝐒ᴏᴏɴ</a>\n» 𝐇ᴇɴᴛᴀɪ 𝐂ʜᴀɴɴᴇʟ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></blockquote></b>"""
 #start message
-START_MSG = os.environ.get("START_MESSAGE", "<b>ʜɪ ᴛʜᴇʀᴇ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href=https://t.me/Vap_World>[ Vap World ]</a></b>")
+START_MSG = os.environ.get("START_MESSAGE", "<b>ʜɪ ᴛʜᴇʀᴇ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></b>")
 try:
     ADMINS=[1683225887]
     for x in (os.environ.get("ADMINS", "1683225887 6521688979").split()):
@@ -67,7 +68,7 @@ SHORT_URL = os.environ.get("SHORTNER_URL", "arolinks.com")
 SHORT_API = os.environ.get("SHORTNER_API", "744bdf08ccf566a7d02235bcc380e4ffbe971a90")
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
-USER_REPLY_TEXT = "Pʟᴇᴀꜱᴇ ᴅᴏɴ'ᴛ ᴍᴇꜱꜱᴀɢᴇ ᴍᴇ ᴅɪʀᴇᴄᴛʟʏ ɪ ᴀᴍ ᴏɴʟʏ ᴡᴏʀᴋ ꜰᴏʀ - @Hanime_Web"
+USER_REPLY_TEXT = "Pʟᴇᴀꜱᴇ ᴅᴏɴ'ᴛ ᴍᴇꜱꜱᴀɢᴇ ᴍᴇ ᴅɪʀᴇᴄᴛʟʏ ɪ ᴀᴍ ᴏɴʟʏ ᴡᴏʀᴋ ꜰᴏʀ - @Vap_World"
 
 AUTO_DEL = os.environ.get("AUTO_DEL", "True")
 DEL_TIMER = int(os.environ.get("DEL_TIMER", "43200"))
