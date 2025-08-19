@@ -65,7 +65,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("Owner", url="https://t.me/Amex_Fushiguro"),
-                        InlineKeyboardButton("Main Channel", url="https://t.me/Hanime_Web")
+                        InlineKeyboardButton("Main Channel", url="https://t.me/Vap_World")
                     ],
                     [
                         InlineKeyboardButton("🔒 Close", callback_data="close")
