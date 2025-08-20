@@ -45,7 +45,7 @@ ABOUT_TXT = "<b><blockquote>○ 𝐎ᴡɴᴇʀ : <a href='https://t.me/Amex_Fush
 START_MSG = os.environ.get("START_MESSAGE", "<b>ʜɪ ᴛʜᴇʀᴇ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></b>")
 try:
     ADMINS=[1683225887]
-    for x in (os.environ.get("ADMINS", "1683225887, 8101405157").split()):
+    for x in (os.environ.get("ADMINS", "1683225887 8101405157").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
