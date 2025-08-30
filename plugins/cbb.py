@@ -56,7 +56,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         )
     elif data == "premium":
         await query.message.reply_photo(
-            photo=("https://graph.org/file/7628068a362f2e3080d49-c1e0857bcc82b2ac4c.jpg"),
+            photo=("https://graph.org/file/1e9020a80c983a8853080-632cfe5e165596e90b.jpg"),
             caption=message_content.format(
                 first = query.from_user.mention, 
                 second = query.from_user.mention
