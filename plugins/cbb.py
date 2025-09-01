@@ -6,11 +6,14 @@ from database.database import add_user, del_user, full_userbase, present_user
 
 message_content = '''👋 <b>Hey {first}\n
 🎖️ <u>Available Plans</u>:</b>\n
-<blockquote expandable><i>● 30 rs For 7 Days Prime Membership\n
-● 110 rs For 1 Month Prime Membership\n
-● 299 rs For 3 Months Prime Membership\n
-● 550 rs For 6 Months Prime Membership\n
-● 999 rs For 1 Year Prime Membership</i></blockquote>\n
+<blockquote expandable><i>●  ₹80 For 7 Days Prime Membership\n
+● ₹199 For 1 Month Prime Membership\n
+● ₹249 For 2 Months Prime Membership\n
+● ₹349 For 3 Months Prime Membership\n
+● ₹499 For 6 Months Prime Membership\n
+● ₹699 For 9 Months Prime Membership\n
+● ₹999 For 1 Year Prime Membership\n
+●  ₹1,999 For Lifetime Prime Membership</i></blockquote>\n
 💵 DM - <code>@Amex_Fushiguro</code>
 <b>(Tap to copy UPI Id)</b>\n\n
 ♻️ <b>If payment is not getting sent on above given QR code then inform Admin, He will give you new QR code</b>\n
@@ -56,7 +59,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         )
     elif data == "premium":
         await query.message.reply_photo(
-            photo=("https://graph.org/file/1e9020a80c983a8853080-632cfe5e165596e90b.jpg"),
+            photo=("https://graph.org/file/ac61481c6c90015545d83-6b573a858fa21d40c6.jpg"),
             caption=message_content.format(
                 first = query.from_user.mention, 
                 second = query.from_user.mention
@@ -64,8 +67,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Owner", url="https://t.me/Amex_Fushiguro"),
-                        InlineKeyboardButton("Main Channel", url="https://t.me/Vap_World")
+                        InlineKeyboardButton("Owner", url="https://t.me/ABT_Fushiguro"),
+                        InlineKeyboardButton("Main Channel", url="https://t.me/Hanime_Web")
                     ],
                     [
                         InlineKeyboardButton("🔒 Close", callback_data="close")

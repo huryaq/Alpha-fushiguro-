@@ -128,6 +128,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup([
             [InlineKeyboardButton("ʜᴇʟᴘ", callback_data='help'),
              InlineKeyboardButton("ᴀʙᴏᴜᴛ", callback_data='about')],
+            [InlineKeyboardButton("ᴡᴀᴛᴄʜ 𝟷𝟾+ sʜᴏʀᴛs ᴠɪᴅᴇᴏs", url='https://t.me/Hanime_Web')],
             [InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')]
         ])
         try:
@@ -162,8 +163,8 @@ async def short_url(client: Client, message: Message, base64_string):
 
         buttons = [
             [
-                InlineKeyboardButton(text="🎀 Dᴏᴡɴʟᴏᴀᴅ 🎀", url=short_link),
-                InlineKeyboardButton(text="ᴛᴜᴛᴏʀɪᴀʟ", url="https://t.me/+5eMEwVDf3qUxMDU9")
+                InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ", url=short_link),
+                InlineKeyboardButton(text="ᴛᴜᴛᴏʀɪᴀʟ •", url="https://t.me/+14dJN8KC6AM1Mjll")
             ],
             [
                 InlineKeyboardButton(text="• ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ •", callback_data="premium")
@@ -245,7 +246,7 @@ async def my_plan(client: Client, message: Message):
     if is_user_premium:
         await message.reply_text("Ads : Disable\nPremium : Unlocked\n\nNice Dude you're a premium user..!")
     else:
-        await message.reply_text("Ads : Enable\nPremium : Locked\n\nUnlock Premium to get more benefits\nContact - @DoraShin_hlo..!")
+        await message.reply_text("Ads : Enable\nPremium : Locked\n\nUnlock Premium to get more benefits\nContact - @Amex_Fushiguro..!")
 
 @Bot.on_message(filters.command('users') & filters.private & filters.user(OWNER_ID))
 async def get_users(client: Bot, message: Message):
