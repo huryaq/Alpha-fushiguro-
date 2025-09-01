@@ -128,7 +128,6 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup([
             [InlineKeyboardButton("ʜᴇʟᴘ", callback_data='help'),
              InlineKeyboardButton("ᴀʙᴏᴜᴛ", callback_data='about')],
-            [InlineKeyboardButton("ᴡᴀᴛᴄʜ 𝟷𝟾+ sʜᴏʀᴛs ᴠɪᴅᴇᴏs", url='https://t.me/Hanime_Web')],
             [InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')]
         ])
         try:
