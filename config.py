@@ -39,7 +39,7 @@ START_PIC = os.environ.get("START_PIC", "https://ibb.co/qYrvkkng")
 FORCE_PIC = os.environ.get("FORCE_PIC", "https://envs.sh/uML.jpg")
 
 #text
-HELP_TXT = "<blockquote><b>Hi Dude!\n\nTo use this bot you just have to join both channels that's it..\nWatch Tutorial to open Link - <a href=https://t.me/+5eMEwVDf3qUxMDU9>Clickhere</a></b></blockquote>"
+HELP_TXT = "<blockquote><b>Hi Dude!\n\nTo use this bot you just have to join both channels that's it..\nWatch Tutorial to open Link - <a href=https://t.me/+14dJN8KC6AM1Mjll>Clickhere</a></b></blockquote>"
 ABOUT_TXT = "<b><blockquote>○ 𝐎ᴡɴᴇʀ : <a href='https://t.me/Amex_Fushiguro'>𝐅ᴜsʜɪɢᴜʀᴏ</a>\n○ 𝐀ɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : <a href='https://t.me/Anime_Duo'>𝐂ᴏᴍɪɴɢ 𝐒ᴏᴏɴ</a>\n○ 𝐇ᴇɴᴛᴀɪ 𝐂ʜᴀɴɴᴇʟ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></blockquote></b>"
 #start message
 START_MSG = os.environ.get("START_MESSAGE", "<b>ʜɪ ᴛʜᴇʀᴇ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ : <a href=https://t.me/Vap_World>𝐕ᴀᴘ 𝐖ᴏʀʟᴅ</a></b>")
