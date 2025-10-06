@@ -5,15 +5,19 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from database.database import add_user, del_user, full_userbase, present_user
 
 message_content = '''👋 <b>Hey {first}\n
+message_content = '''👋 <b>Hey {first}\n
 🎖️ <u>Available Plans</u>:</b>\n
-<blockquote expandable><i>●  ₹80 For 7 Days Prime Membership\n
-● ₹199 For 1 Month Prime Membership\n
-● ₹249 For 2 Months Prime Membership\n
-● ₹349 For 3 Months Prime Membership\n
-● ₹499 For 6 Months Prime Membership\n
-● ₹699 For 9 Months Prime Membership\n
-● ₹999 For 1 Year Prime Membership\n
-●  ₹1,999 For Lifetime Prime Membership</i></blockquote>\n
+🔱➜Premium Benefits: 
+
+• No Link Shortner - With Direct Link, No Ads
+• One Membership - Access All Channel 
+• Quick Access - Get Content In One Click\n\n
+<blockquote expandable><i>●  ₹69 For 1 week Prime Membership\n
+﻿↻ ₹249 For 1 Months Prime Membership\n
+↻ ₹499 For 3 Months Prime Membership\n
+↻ ₹777 For 6 Months Prime Membership\n
+↻ ₹1111 For 1 Year Prime Membership\n
+↻ ₹2,999 For Lifetime Prime Membership</i></blockquote>\n
 💵 DM - @Nagi_Seishiro_x <code>9322351589@ibl</code>
 <b>(Tap to copy UPI Id)</b>\n\n
 ♻️ <b>If payment is not getting sent on above given QR code then inform Admin, He will give you new QR code</b>\n
