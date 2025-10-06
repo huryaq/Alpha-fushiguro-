@@ -5,7 +5,6 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from database.database import add_user, del_user, full_userbase, present_user
 
 message_content = '''👋 <b>Hey {first}\n
-message_content = '''👋 <b>Hey {first}\n
 🎖️ <u>Available Plans</u>:</b>\n
 🔱➜Premium Benefits: 
 
