@@ -19,7 +19,7 @@ API_HASH = os.environ.get("API_HASH", "8121c78f4b8b31e88cc2623d1277338d")
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1003059317896"))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "5961139833"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "1683225887"))
 
 #Port
 PORT = os.environ.get("PORT", "8080")
@@ -64,7 +64,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 
 #Short Url or Api
 SHORT_URL = os.environ.get("SHORTNER_URL", "arolinks.com")
-SHORT_API = os.environ.get("SHORTNER_API", "744bdf08ccf566a7d02235bcc380e4ffbe971a90")
+SHORT_API = os.environ.get("SHORTNER_API", "b67eed369d6538dc16b4f49855ee070bd74ecdd9")
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "Pʟᴇᴀꜱᴇ ᴅᴏɴ'ᴛ ᴍᴇꜱꜱᴀɢᴇ ᴍᴇ ᴅɪʀᴇᴄᴛʟʏ ɪ ᴀᴍ ᴏɴʟʏ ᴡᴏʀᴋ ꜰᴏʀ - @Vap_World"
