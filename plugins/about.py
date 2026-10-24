@@ -19,7 +19,7 @@ async def help_cammand(client: Client, message: Message):
         except:
             pass
     text = message.text
-    if len(text)>7:
+    if len(text) > 7:
         try:
             base64_string = text.split(" ", 1)[1]
         except:
@@ -33,7 +33,7 @@ async def help_cammand(client: Client, message: Message):
             except:
                 return
             if start <= end:
-                ids = range(start,end+1)
+                ids = range(start, end + 1)
             else:
                 ids = []
                 i = start
@@ -56,9 +56,11 @@ async def help_cammand(client: Client, message: Message):
         await temp_msg.delete()
 
         for msg in messages:
-
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption="" if not msg.caption else msg.caption.html,
+                    filename=msg.document.file_name
+                )
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
@@ -68,35 +70,62 @@ async def help_cammand(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(getattr(e, 'value', getattr(e, 'x', 5)))
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
             except:
                 pass
         return
     else:
         reply_markup = InlineKeyboardMarkup([
             [
-                        InlineKeyboardButton('ʜᴏᴍᴇ​', callback_data='start'),
-                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')
-                    ]
+                InlineKeyboardButton('ʜᴏᴍᴇ​', callback_data='start'),
+                InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')
+            ]
         ])
-        await message.reply_photo(
-            photo= START_PIC,
-            caption= HELP_TXT.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-            reply_markup = reply_markup,
-            
+        help_caption = HELP_TXT.format(
+            first=message.from_user.first_name,
+            last=message.from_user.last_name,
+            username=None if not message.from_user.username else '@' + message.from_user.username,
+            mention=message.from_user.mention,
+            id=message.from_user.id
         )
+        try:
+            if START_PIC:
+                await message.reply_photo(
+                    photo=START_PIC,
+                    caption=help_caption,
+                    reply_markup=reply_markup
+                )
+            else:
+                await message.reply_text(
+                    text=help_caption,
+                    reply_markup=reply_markup,
+                    disable_web_page_preview=True
+                )
+        except Exception:
+            await message.reply_text(
+                text=help_caption,
+                reply_markup=reply_markup,
+                disable_web_page_preview=True
+            )
         return
-    
+
+
 @Bot.on_message(filters.command('about') & filters.private)
 async def about_cammand(client: Client, message: Message):
     id = message.from_user.id
@@ -106,7 +135,7 @@ async def about_cammand(client: Client, message: Message):
         except:
             pass
     text = message.text
-    if len(text)>7:
+    if len(text) > 7:
         try:
             base64_string = text.split(" ", 1)[1]
         except:
@@ -120,7 +149,7 @@ async def about_cammand(client: Client, message: Message):
             except:
                 return
             if start <= end:
-                ids = range(start,end+1)
+                ids = range(start, end + 1)
             else:
                 ids = []
                 i = start
@@ -143,9 +172,11 @@ async def about_cammand(client: Client, message: Message):
         await temp_msg.delete()
 
         for msg in messages:
-
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption="" if not msg.caption else msg.caption.html,
+                    filename=msg.document.file_name
+                )
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
@@ -155,31 +186,57 @@ async def about_cammand(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(getattr(e, 'value', getattr(e, 'x', 5)))
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
             except:
                 pass
         return
     else:
         reply_markup = InlineKeyboardMarkup([
             [
-                        InlineKeyboardButton('ʜᴏᴍᴇ​', callback_data='start'),
-                        InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')
-                    ]
+                InlineKeyboardButton('ʜᴏᴍᴇ​', callback_data='start'),
+                InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')
+            ]
         ])
-        await message.reply_photo(
-            photo= START_PIC,
-            caption= ABOUT_TXT.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-            reply_markup = reply_markup,
-            
+        about_caption = ABOUT_TXT.format(
+            first=message.from_user.first_name,
+            last=message.from_user.last_name,
+            username=None if not message.from_user.username else '@' + message.from_user.username,
+            mention=message.from_user.mention,
+            id=message.from_user.id
         )
-        return    
+        try:
+            if START_PIC:
+                await message.reply_photo(
+                    photo=START_PIC,
+                    caption=about_caption,
+                    reply_markup=reply_markup
+                )
+            else:
+                await message.reply_text(
+                    text=about_caption,
+                    reply_markup=reply_markup,
+                    disable_web_page_preview=True
+                )
+        except Exception:
+            await message.reply_text(
+                text=about_caption,
+                reply_markup=reply_markup,
+                disable_web_page_preview=True
+            )
+        return
