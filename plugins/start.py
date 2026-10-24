@@ -89,10 +89,13 @@ async def start_command(client: Client, message: Message):
         await temp_msg.delete()
         await add_click(user_id, base64_string)
 
+        last_message = None
         for idx, msg in enumerate(messages):
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html,
-                                                filename=msg.document.file_name)
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption="" if not msg.caption else msg.caption.html,
+                    filename=msg.document.file_name
+                )
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
@@ -102,16 +105,26 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
-                               reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                copied_msg = await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
                 await asyncio.sleep(0.5)
                 asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
                 if idx == len(messages) - 1 and AUTO_DEL:
                     last_message = copied_msg
             except FloodWait as e:
-                await asyncio.sleep(e.x)
-                copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
-                               reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(getattr(e, 'value', getattr(e, 'x', 5)))
+                copied_msg = await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
+                )
                 await asyncio.sleep(0.5)
                 asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
                 if idx == len(messages) - 1 and AUTO_DEL:
@@ -126,25 +139,39 @@ async def start_command(client: Client, message: Message):
         return
     else:
         reply_markup = InlineKeyboardMarkup([
-            [InlineKeyboardButton("ʜᴇʟᴘ", callback_data='help'),
-             InlineKeyboardButton("ᴀʙᴏᴜᴛ", callback_data='about')],
+            [
+                InlineKeyboardButton("ʜᴇʟᴘ", callback_data='help'),
+                InlineKeyboardButton("ᴀʙᴏᴜᴛ", callback_data='about')
+            ],
             [InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')]
         ])
+        start_caption = START_MSG.format(
+            first=message.from_user.first_name,
+            last=message.from_user.last_name,
+            username=None if not message.from_user.username else '@' + message.from_user.username,
+            mention=message.from_user.mention,
+            id=message.from_user.id
+        )
         try:
-            await message.reply_photo(
-                photo=START_PIC,
-                caption=START_MSG.format(
-                    first=message.from_user.first_name,
-                    last=message.from_user.last_name,
-                    username=None if not message.from_user.username else '@' + message.from_user.username,
-                    mention=message.from_user.mention,
-                    id=message.from_user.id
-                ),
-                reply_markup=reply_markup,
-
-            )
+            if START_PIC:
+                await message.reply_photo(
+                    photo=START_PIC,
+                    caption=start_caption,
+                    reply_markup=reply_markup
+                )
+            else:
+                await message.reply_text(
+                    text=start_caption,
+                    reply_markup=reply_markup,
+                    disable_web_page_preview=True
+                )
         except Exception as e:
-            print(f"Error replying to message: {e}")
+            print(f"Error replying with START_PIC, sending text instead: {e}")
+            await message.reply_text(
+                text=start_caption,
+                reply_markup=reply_markup,
+                disable_web_page_preview=True
+            )
         return
 
 
@@ -170,13 +197,26 @@ async def short_url(client: Client, message: Message, base64_string):
             ]
         ]
 
-        await message.reply_photo(
-            photo=START_PIC,
-            caption=SHORT_MSG.format(
-                total_count=total_clicks
-            ),
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
+        short_caption = SHORT_MSG.format(total_count=total_clicks)
+        try:
+            if START_PIC:
+                await message.reply_photo(
+                    photo=START_PIC,
+                    caption=short_caption,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
+            else:
+                await message.reply_text(
+                    text=short_caption,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                    disable_web_page_preview=True
+                )
+        except Exception:
+            await message.reply_text(
+                text=short_caption,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                disable_web_page_preview=True
+            )
 
     except IndexError:
         pass
@@ -202,17 +242,33 @@ async def not_joined(client: Client, message: Message):
     except IndexError:
         pass
 
-    await message.reply_photo(
-        photo=FORCE_PIC,
-        caption=FORCE_MSG.format(
-            first=message.from_user.first_name,
-            last=message.from_user.last_name,
-            username=None if not message.from_user.username else '@' + message.from_user.username,
-            mention=message.from_user.mention,
-            id=message.from_user.id
-        ),
-        reply_markup=InlineKeyboardMarkup(buttons)
+    force_caption = FORCE_MSG.format(
+        first=message.from_user.first_name,
+        last=message.from_user.last_name,
+        username=None if not message.from_user.username else '@' + message.from_user.username,
+        mention=message.from_user.mention,
+        id=message.from_user.id
     )
+    try:
+        if FORCE_PIC:
+            await message.reply_photo(
+                photo=FORCE_PIC,
+                caption=force_caption,
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
+        else:
+            await message.reply_text(
+                text=force_caption,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                disable_web_page_preview=True
+            )
+    except Exception as e:
+        print(f"Error replying with FORCE_PIC, sending text instead: {e}")
+        await message.reply_text(
+            text=force_caption,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            disable_web_page_preview=True
+        )
 
 @Bot.on_message(filters.command('request') & filters.private)
 async def request_command(client: Client, message: Message):
@@ -270,7 +326,7 @@ async def send_text(client: Bot, message: Message):
                 await broadcast_msg.copy(chat_id)
                 successful += 1
             except FloodWait as e:
-                await asyncio.sleep(e.x)
+                await asyncio.sleep(getattr(e, 'value', getattr(e, 'x', 5)))
                 await broadcast_msg.copy(chat_id)
                 successful += 1
             except UserIsBlocked:
@@ -300,12 +356,10 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
 
 
-
-
 #=====================================================================================##
 
 
-@Bot.on_message(filters.private & filters.command('pbroadcast')  & filters.user(ADMINS))
+@Bot.on_message(filters.private & filters.command('pbroadcast') & filters.user(ADMINS))
 async def send_pin_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await full_userbase()
@@ -324,15 +378,15 @@ async def send_pin_text(client: Bot, message: Message):
                 await client.pin_chat_message(chat_id=chat_id, message_id=sent_msg.id, both_sides=True)
                 successful += 1
             except FloodWait as e:
-                await asyncio.sleep(e.x)
+                await asyncio.sleep(getattr(e, 'value', getattr(e, 'x', 5)))
                 sent_msg = await broadcast_msg.copy(chat_id)
                 await client.pin_chat_message(chat_id=chat_id, message_id=sent_msg.id, both_sides=True)
                 successful += 1
             except UserIsBlocked:
-                await db.del_user(chat_id)
+                await del_user(chat_id)
                 blocked += 1
             except InputUserDeactivated:
-                await db.del_user(chat_id)
+                await del_user(chat_id)
                 deleted += 1
             except Exception as e:
                 print(f"Failed to send or pin message to {chat_id}: {e}")
